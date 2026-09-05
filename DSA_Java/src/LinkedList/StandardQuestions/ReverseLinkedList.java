@@ -1,4 +1,6 @@
-package LinkedList;
+package LinkedList.StandardQuestions;
+
+import LinkedList.ListNode;
 
 public class ReverseLinkedList {
     public static ListNode reverseList(ListNode head) {
