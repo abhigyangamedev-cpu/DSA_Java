@@ -229,7 +229,10 @@ public class ListNode {
         return head;
     }
     private static ListNode addAtEnd(ListNode node){
-        if(head == null) return null;
+        if(head == null){
+            head = node;
+            return head;
+        }
 
         ListNode curr = head;
 
