@@ -4,15 +4,15 @@ import javax.xml.crypto.dom.DOMCryptoContext;
 
 public class DoublyLinkedList {
     int val;
-    DoublyLinkedList next;
-    DoublyLinkedList prev;
-    static DoublyLinkedList head;
+    public DoublyLinkedList next;
+    public DoublyLinkedList prev;
+    public static DoublyLinkedList head;
 
     DoublyLinkedList(){
 
     }
 
-    DoublyLinkedList(int val){
+    public DoublyLinkedList(int val){
         this.val = val;
     }
 
@@ -22,7 +22,7 @@ public class DoublyLinkedList {
         this.prev = prev;
     }
 
-    private static void TraversalForward(DoublyLinkedList head){
+    public static void TraversalForward(DoublyLinkedList head){
         DoublyLinkedList curr = head;
 
         while (curr != null){
