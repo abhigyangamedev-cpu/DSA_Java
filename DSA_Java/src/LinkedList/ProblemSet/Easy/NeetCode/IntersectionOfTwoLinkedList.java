@@ -1,4 +1,4 @@
-package LinkedList.ProblemSet.NeetCode;
+package LinkedList.ProblemSet.Easy.NeetCode;
 
 import LinkedList.ListNode;
 

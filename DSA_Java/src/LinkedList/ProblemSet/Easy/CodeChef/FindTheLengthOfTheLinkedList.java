@@ -1,4 +1,4 @@
-package LinkedList.ProblemSet.CodeChef;
+package LinkedList.ProblemSet.Easy.CodeChef;
 
 import LinkedList.ListNode;
 
