@@ -1,4 +1,4 @@
-package LinkedList.LeetCode;
+package LinkedList.ProblemSet.LeetCode;
 
 import LinkedList.ListNode;
 
