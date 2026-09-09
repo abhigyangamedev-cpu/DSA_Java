@@ -41,7 +41,7 @@ public class Arrays {
         printArrayWhileLoop(arr);
 
         // Updation
-        System.out.println("Printing the arrat after updating the index 2 with number 10 replacing number 3");
+        System.out.println("Printing the array after updating the index 2 with number 10 replacing number 3");
         arr[2] = 10;
         printArrayForLoop(arr);
 
