@@ -63,6 +63,6 @@ public class MergeTwoSortedLists {
         l2three.next = l2four;
 
         ListNode ans = mergeTwoLists(l1one,l2one);
-        ListNode.printList(ans);
+        ListNode.ListNodeMethods.printList(ans);
     }
 }

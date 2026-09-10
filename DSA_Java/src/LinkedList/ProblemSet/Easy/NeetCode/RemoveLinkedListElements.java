@@ -38,7 +38,7 @@ public class RemoveLinkedListElements {
         ListNode ans = removeElements(ListNode.head,6);
 
         System.out.println("Printing the new Linked List after removing Elements");
-        ListNode.printList(ListNode.head);
+        ListNode.ListNodeMethods.printList(ListNode.head);
     }
 
 

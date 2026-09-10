@@ -30,6 +30,6 @@ public class RemoveDuplicateFromSortedList {
         ListNode.head = one;
 
         ListNode ans = deleteDuplicates(ListNode.head);
-        ListNode.printList(ans);
+        ListNode.ListNodeMethods.printList(ans);
     }
 }

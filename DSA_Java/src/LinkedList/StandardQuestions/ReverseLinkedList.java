@@ -34,12 +34,12 @@ public class ReverseLinkedList {
         four.next = five;
 
         System.out.println("Printing the linked list");
-        ListNode.printList(one);
+        ListNode.ListNodeMethods.printList(one);
 
         ListNode ans = reverseList(one);
 
         System.out.println("Printing the reversed linked list");
-        ListNode.printList(ans);
+        ListNode.ListNodeMethods.printList(ans);
 
 
     }

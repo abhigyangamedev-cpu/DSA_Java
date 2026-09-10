@@ -72,7 +72,7 @@ public class AddTwoNumbers {
         l2six.next = l2four;
 
         ListNode ans = addTwoNumbers(l1two,l2five);
-        ListNode.printList(ans);
+        ListNode.ListNodeMethods.printList(ans);
 
     }
 }

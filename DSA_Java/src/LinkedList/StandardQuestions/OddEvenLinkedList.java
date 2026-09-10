@@ -37,6 +37,6 @@ public class OddEvenLinkedList {
           ListNode.head = one;
 
           ListNode ans = oddEvenList(ListNode.head);
-          ListNode.printList(ans);
+          ListNode.ListNodeMethods.printList(ans);
     }
 }

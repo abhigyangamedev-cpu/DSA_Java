@@ -31,6 +31,6 @@ public class MiddleOfALinkedList {
 
         ListNode ans = middleNode(ListNode.head);
 
-        ListNode.printList(ans);
+        ListNode.ListNodeMethods.printList(ans);
     }
 }
