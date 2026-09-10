@@ -29,7 +29,6 @@ public class ListNode {
 
             System.out.println("null");
         }
-
         private static ListNode InsertAtEnd(ListNode node) {
 
             if (ListNode.head == null) {
@@ -47,7 +46,6 @@ public class ListNode {
 
             return ListNode.head;
         }
-
         private static ListNode InsertAtStart(ListNode node) {
 
             if (ListNode.head == null) {
@@ -60,7 +58,6 @@ public class ListNode {
 
             return ListNode.head;
         }
-
         private static ListNode InsertAtPosition(ListNode node, int position) {
 
             if (position < 1) {
@@ -91,7 +88,6 @@ public class ListNode {
 
             return ListNode.head;
         }
-
         private static ListNode InsertAtIndex(ListNode node, int index) {
 
             if (index < 0) {
@@ -122,7 +118,6 @@ public class ListNode {
 
             return ListNode.head;
         }
-
         private static ListNode InsertAfterValue(ListNode node, int value) {
 
             ListNode curr = ListNode.head;
@@ -140,7 +135,6 @@ public class ListNode {
 
             return ListNode.head;
         }
-
         private static ListNode deleteAtEnd(ListNode head) {
 
             if (head == null || head.next == null) {
@@ -157,7 +151,6 @@ public class ListNode {
 
             return head;
         }
-
         private static ListNode deleteAtStart(ListNode head) {
 
             if (head == null) {
@@ -166,7 +159,6 @@ public class ListNode {
 
             return head.next;
         }
-
         private static ListNode deleteAtPosition(int position) {
 
             if (position < 1) {
@@ -199,7 +191,6 @@ public class ListNode {
 
             return ListNode.head;
         }
-
         private static ListNode deleteAtIndex(int index) {
 
             if (index < 0) {
@@ -232,7 +223,6 @@ public class ListNode {
 
             return ListNode.head;
         }
-
         private static ListNode deleteAfterValue(int value) {
 
             ListNode curr = ListNode.head;

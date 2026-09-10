@@ -1,7 +1,7 @@
 package Arrays.StandardQuestions;
 
 public class BestTimeToBuyAndSellStockII {
-    public static int maxProfit(int[] prices) {
+    public static int maxProfitII(int[] prices) {
         int totalProfit = 0;
 
         for(int i = 0; i < prices.length-1; i++){
@@ -14,7 +14,7 @@ public class BestTimeToBuyAndSellStockII {
 
     public static void main(String[] args){
         int[] arr = {7,1,5,3,6,4};
-        int ans = maxProfit(arr);
+        int ans = maxProfitII(arr);
 
         System.out.println("Total Profit :- " + ans);
     }
