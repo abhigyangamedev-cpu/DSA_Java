@@ -39,9 +39,7 @@ public class TreeNode {
         }
 
         inOrder(node.left);
-
         System.out.print(node.val + "->");
-
         inOrder(node.right);
     }
 
@@ -53,7 +51,6 @@ public class TreeNode {
 
         postOrder(node.left);
         postOrder(node.right);
-
         System.out.print(node.val + "->");
     }
 
