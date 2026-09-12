@@ -1,4 +1,4 @@
-package Arrays.StandardQuestions;
+package Arrays.FixedArrays.StandardQuestions;
 
 public class RemoveElement {
     public static int removeElement(int[] nums, int val) {

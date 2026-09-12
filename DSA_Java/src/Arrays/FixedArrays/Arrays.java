@@ -1,4 +1,4 @@
-package Arrays;
+package Arrays.FixedArrays;
 
 public class Arrays {
 

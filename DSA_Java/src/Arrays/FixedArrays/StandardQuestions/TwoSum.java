@@ -1,6 +1,6 @@
-package Arrays.StandardQuestions;
+package Arrays.FixedArrays.StandardQuestions;
 
-import Arrays.Arrays;
+import Arrays.FixedArrays.Arrays;
 
 public class TwoSum {
     public static int[] twoSum(int[] nums, int target) {

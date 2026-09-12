@@ -1,6 +1,6 @@
-package Arrays.StandardQuestions;
+package Arrays.FixedArrays.StandardQuestions;
 
-import Arrays.Arrays;
+import Arrays.FixedArrays.Arrays;
 
 public class RotateArray {
     public static void swap(int[] arr,int start,int end){

@@ -1,4 +1,4 @@
-package Arrays.StandardQuestions;
+package Arrays.FixedArrays.StandardQuestions;
 
 public class ContainerWithMostWater {
     public static int maxArea(int[] height) {

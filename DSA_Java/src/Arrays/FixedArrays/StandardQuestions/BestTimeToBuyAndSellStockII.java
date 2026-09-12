@@ -1,4 +1,4 @@
-package Arrays.StandardQuestions;
+package Arrays.FixedArrays.StandardQuestions;
 
 public class BestTimeToBuyAndSellStockII {
     public static int maxProfitII(int[] prices) {
