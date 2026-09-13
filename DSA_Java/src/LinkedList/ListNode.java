@@ -239,6 +239,24 @@ public class ListNode {
 
             return ListNode.head;
         }
+
+        public static ListNode ArrayToLinkedList(int[] arr) {
+
+            if (arr == null || arr.length == 0) {
+                ListNode.head = null;
+                return null;
+            }
+
+            ListNode.head = new ListNode(arr[0]);
+            ListNode curr = ListNode.head;
+
+            for (int i = 1; i < arr.length; i++) {
+                curr.next = new ListNode(arr[i]);
+                curr = curr.next;
+            }
+
+            return ListNode.head;
+        }
     }
 
     public static void main(String[] args) {
