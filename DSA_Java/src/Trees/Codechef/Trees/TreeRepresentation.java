@@ -14,13 +14,21 @@ public class TreeRepresentation {
 
     public static class Tree {
 
-        private final int n;
+        public static int n;
 
         // Adjacency Matrix
         private final int[][] adjMatrix;
 
         // Adjacency List
-        private final ArrayList<ArrayList<Integer>> adjList;
+        private static ArrayList<ArrayList<Integer>> adjList ;
+
+        public static ArrayList<ArrayList<Integer>> getAdjList() {
+            return adjList;
+        }
+
+        public static int getNode(){
+            return n;
+        }
 
 
         // ---------------------------------------------------------
