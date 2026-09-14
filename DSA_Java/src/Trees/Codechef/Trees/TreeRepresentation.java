@@ -1,107 +1,214 @@
 package Trees.Codechef.Trees;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
 
 public class TreeRepresentation {
+
+    // =========================================================
     // Normal Tree
+    // =========================================================
+
     public static class Tree {
 
-        public int n;
-        public int[][] adjMatrix;
-        public ArrayList<ArrayList<Integer>> adjList;
+        private final int n;
+
+        // Adjacency Matrix
+        private final int[][] adjMatrix;
+
+        // Adjacency List
+        private final ArrayList<ArrayList<Integer>> adjList;
+
+
+        // ---------------------------------------------------------
+        // Constructor
+        // ---------------------------------------------------------
 
         public Tree(int n) {
+
             this.n = n;
 
-            // Adjacency Matrix
-            this.adjMatrix = new int[n][n];
+            // Nodes are numbered from 1 to n
+            this.adjMatrix = new int[n + 1][n + 1];
 
-            // Adjacency List
             this.adjList = new ArrayList<>();
 
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i <= n; i++) {
                 adjList.add(new ArrayList<>());
             }
         }
 
-        // Add a directed edge: a → b
+
+        // ---------------------------------------------------------
+        // Add Edge
+        // ---------------------------------------------------------
+
+        // Directed edge: a → b
         public void addEdge(int a, int b) {
+
+            // Adjacency Matrix
             adjMatrix[a][b] = 1;
+
+            // Adjacency List
             adjList.get(a).add(b);
         }
 
+
+        // ---------------------------------------------------------
         // Print Adjacency Matrix
+        // ---------------------------------------------------------
+
         public void printAdjMatrix() {
 
             System.out.println("Adjacency Matrix:");
 
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
+            for (int i = 1; i <= n; i++) {
+
+                for (int j = 1; j <= n; j++) {
                     System.out.print(adjMatrix[i][j] + " ");
                 }
+
                 System.out.println();
             }
         }
 
+
+        // ---------------------------------------------------------
         // Print Adjacency List
+        // ---------------------------------------------------------
+
         public void printAdjList() {
 
             System.out.println("\nAdjacency List:");
 
-            for (int i = 0; i < n; i++) {
+            for (int i = 1; i <= n; i++) {
 
                 System.out.print(i + " → ");
 
-                for (int node : adjList.get(i)) {
-                    System.out.print(node + " ");
+                for (int child : adjList.get(i)) {
+                    System.out.print(child + " ");
                 }
 
                 System.out.println();
+            }
+        }
+
+
+        // ---------------------------------------------------------
+        // DFS
+        // ---------------------------------------------------------
+
+        public void dfs(int node) {
+
+            System.out.print(node + " ");
+
+            for (int i = 0; i < adjList.get(node).size(); i++) {
+
+                int child = adjList.get(node).get(i);
+
+                dfs(child);
+            }
+        }
+
+
+        // ---------------------------------------------------------
+        // BFS
+        // ---------------------------------------------------------
+
+        public void bfs(int root) {
+
+            Queue<Integer> queue = new LinkedList<>();
+
+            boolean[] visited = new boolean[n + 1];
+
+            // Add root
+            queue.add(root);
+            visited[root] = true;
+
+            while (!queue.isEmpty()) {
+
+                // Remove front node
+                int node = queue.poll();
+
+                System.out.print(node + " ");
+
+                // Visit children
+                for (int child : adjList.get(node)) {
+
+                    if (!visited[child]) {
+
+                        visited[child] = true;
+                        queue.add(child);
+                    }
+                }
             }
         }
     }
 
 
+    // =========================================================
     // Weighted Tree
+    // =========================================================
+
     public static class WeightedTree {
 
-        // Represents one weighted edge
+        private final int n;
+
+        // ---------------------------------------------------------
+        // Edge
+        // ---------------------------------------------------------
+
         public static class Edge {
 
             public int node;
             public int weight;
 
             public Edge(int node, int weight) {
+
                 this.node = node;
                 this.weight = weight;
             }
         }
 
-        public int n;
+
+        // ---------------------------------------------------------
+        // Data Structures
+        // ---------------------------------------------------------
 
         // Weighted Adjacency Matrix
-        public int[][] adjMatrix;
+        private final int[][] adjMatrix;
 
         // Weighted Adjacency List
-        public ArrayList<ArrayList<Edge>> adjList;
+        private final ArrayList<ArrayList<Edge>> adjList;
 
+
+        // ---------------------------------------------------------
+        // Constructor
+        // ---------------------------------------------------------
 
         public WeightedTree(int n) {
+
             this.n = n;
 
-            // Weighted Adjacency Matrix
-            this.adjMatrix = new int[n][n];
+            // Nodes are numbered from 1 to n
+            this.adjMatrix = new int[n + 1][n + 1];
 
-            // Weighted Adjacency List
             this.adjList = new ArrayList<>();
 
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i <= n; i++) {
                 adjList.add(new ArrayList<>());
             }
         }
 
 
-        // Add a directed weighted edge: a → b
+        // ---------------------------------------------------------
+        // Add Weighted Edge
+        // ---------------------------------------------------------
+
+        // Directed weighted edge: a → b
         public void addEdge(int a, int b, int weight) {
 
             // Adjacency Matrix
@@ -112,30 +219,39 @@ public class TreeRepresentation {
         }
 
 
+        // ---------------------------------------------------------
         // Print Weighted Adjacency Matrix
+        // ---------------------------------------------------------
+
         public void printAdjMatrix() {
 
             System.out.println("Weighted Adjacency Matrix:");
 
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
+            for (int i = 1; i <= n; i++) {
+
+                for (int j = 1; j <= n; j++) {
                     System.out.print(adjMatrix[i][j] + " ");
                 }
+
                 System.out.println();
             }
         }
 
 
+        // ---------------------------------------------------------
         // Print Weighted Adjacency List
+        // ---------------------------------------------------------
+
         public void printAdjList() {
 
             System.out.println("\nWeighted Adjacency List:");
 
-            for (int i = 0; i < n; i++) {
+            for (int i = 1; i <= n; i++) {
 
                 System.out.print(i + " → ");
 
                 for (Edge edge : adjList.get(i)) {
+
                     System.out.print(
                             "(" + edge.node + ", " + edge.weight + ") "
                     );
@@ -147,46 +263,33 @@ public class TreeRepresentation {
     }
 
 
-
-
+    // =========================================================
+    // Main
+    // =========================================================
 
     public static void main(String[] args) {
 
-        // Create a tree with 5 nodes Normal Tree
-        Tree tree = new Tree(5);
+        Scanner sc = new Scanner(System.in);
 
-        // Add directed edges Normal Tree
-        tree.addEdge(0, 1);
-        tree.addEdge(0, 2);
-        tree.addEdge(1, 3);
-        tree.addEdge(1, 4);
+        int n = sc.nextInt();
 
-        // Print adjacency matrix Normal Tree
-        System.out.println("Printing Adjacency Matrix for normal Tree");
-        tree.printAdjMatrix();
+        Tree tree = new Tree(n);
 
-        // Print adjacency list Normal Tree
-        System.out.println("Printing Adjacency list for normal Tree");
-        tree.printAdjList();
+        // A tree with n nodes has n - 1 edges
+        for (int i = 0; i < n - 1; i++) {
 
-        // Create a tree with 5 nodes Weighted Tree
-        WeightedTree weightedTree = new WeightedTree(5);
+            int u = sc.nextInt();
+            int v = sc.nextInt();
 
-        // Add directed edges Weighted Tree
-        weightedTree.addEdge(0,1,2);
-        weightedTree.addEdge(0,2,3);
-        weightedTree.addEdge(1,3,2);
-        weightedTree.addEdge(1,4,4);
+            tree.addEdge(u, v);
+        }
 
-        // Print adjacency matrix Weighted Tree
-        System.out.println("Printing Adjacency Matrix for Weighted Tree");
-        weightedTree.printAdjMatrix();
+        System.out.println("DFS:");
+        tree.dfs(1);
 
-        // Print adjacency list Weighted Tree
-        System.out.println("Printing Adjacency list for Weighted Tree");
-        weightedTree.printAdjList();
+        System.out.println("\n\nBFS:");
+        tree.bfs(1);
 
-
+        sc.close();
     }
-
 }
