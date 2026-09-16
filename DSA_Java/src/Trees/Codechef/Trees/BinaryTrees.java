@@ -51,7 +51,6 @@ public class BinaryTrees {
             return Math.max(0,depth(root) - 1);
         }
 
-
     }
 
     public static void main(String[] args){
