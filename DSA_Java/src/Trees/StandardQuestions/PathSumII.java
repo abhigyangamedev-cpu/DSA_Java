@@ -8,24 +8,27 @@ import java.util.List;
 public class PathSumII {
     public static List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> result = new ArrayList();
-        dfs(root, targetSum, 0, new ArrayList(), result);
+        List<Integer> solution = new ArrayList<Integer>();
+        pathSum(root, targetSum, solution, result);
         return result;
+
     }
 
-    private static void dfs(TreeNode root,int targetSum, int sum ,List<Integer> temp, List<List<Integer>> result){
-
-        if(root == null) return;
-
-        temp.add(root.val);
-        sum += root.val;
-
-        if(root.left == null && root.right == null && sum == targetSum){
-            result.add(new ArrayList(temp));
+    static void pathSum(TreeNode root, int sum, List<Integer> solution, List<List<Integer>> result){
+        if(root == null){
+            return;
         }
 
-        dfs(root.left , targetSum, sum, temp, result);
-        dfs(root.right , targetSum, sum, temp, result);
-        temp.remove(temp.size() - 1);
+        solution.add(root.val);
+
+        if(root.left == null && root.right == null && sum == root.val){
+            result.add(new ArrayList<Integer>(solution));
+        }else{
+            pathSum(root.left,sum - root.val, solution,result);
+            pathSum(root.right, sum - root.val, solution, result);
+        }
+
+        solution.remove(solution.size() - 1);
     }
 
     public static void main(String[] args){
