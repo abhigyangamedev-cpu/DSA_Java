@@ -3,24 +3,24 @@ package Trees.StandardQuestions;
 import Trees.TreeNode;
 
 public class BalancedBinaryTree {
+    public static int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+
+        int maxDepthLeft = maxDepth(root.left);
+        int maxDepthRight = maxDepth(root.right);
+
+        return 1 + Math.max(maxDepthLeft, maxDepthRight);
+    }
+
     public static boolean isBalanced(TreeNode root) {
+        if(root == null) return true;
 
-        if (root == null) {
+        int diff = Math.abs(maxDepth(root.left) - maxDepth(root.right));
+        boolean isBalancedCheck = isBalanced(root.left) && isBalanced(root.right);
+
+        if(diff <= 1 && isBalancedCheck == true){
             return true;
-        }
-
-        int diff = Math.abs(
-                MaxDepthOfBinaryTree.maxDepth(root.left) -
-                        MaxDepthOfBinaryTree.maxDepth(root.right)
-        );
-
-        boolean isBalancedCheck =
-                isBalanced(root.left) &&
-                        isBalanced(root.right);
-
-        if (diff <= 1 && isBalancedCheck) {
-            return true;
-        } else {
+        }else{
             return false;
         }
     }
