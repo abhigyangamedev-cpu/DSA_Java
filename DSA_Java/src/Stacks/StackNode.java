@@ -4,6 +4,7 @@ public class StackNode {
 
     int val;
     StackNode next;
+    public static StackNode head = null;
 
     public StackNode(int val) {
         this.val = val;
@@ -16,9 +17,7 @@ public class StackNode {
     }
 
     public static class Stack {
-
-        private StackNode head = null;
-
+         
         public boolean isEmpty() {
             return head == null;
         }

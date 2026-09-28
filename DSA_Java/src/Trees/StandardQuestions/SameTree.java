@@ -12,7 +12,7 @@ public class SameTree {
             return false;
         }
 
-        if(p.val == q.val && isSameTree(p.left,q.left) == true && isSameTree(p.right, q.right) == true){
+        if(p.val == q.val && ( isSameTree(p.left,q.left) == true && isSameTree(p.right, q.right) == true )){
             return true;
         }else{
             return false;
