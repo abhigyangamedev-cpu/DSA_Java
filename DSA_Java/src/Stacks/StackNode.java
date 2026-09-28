@@ -17,7 +17,7 @@ public class StackNode {
     }
 
     public static class Stack {
-         
+
         public boolean isEmpty() {
             return head == null;
         }
