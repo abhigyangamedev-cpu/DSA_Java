@@ -1,7 +1,10 @@
 package Trees;
 
+
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class TreeNode {
 
@@ -55,6 +58,34 @@ public class TreeNode {
         postOrder(node.left);
         postOrder(node.right);
         System.out.print(node.val + "->");
+    }
+
+    public static List<Integer> inorderTraversal(TreeNode root){
+        List<Integer> result = new LinkedList<>();
+
+        if(root == null){
+            return result;
+        }
+
+        Stack<TreeNode> st = new Stack<>();
+        TreeNode curr = root;
+
+        while(curr != null || !st.isEmpty()){
+            // Push onto the stack the left nodes to reach the left most node
+            while(curr != null){
+                st.push(curr);
+                curr = curr.left;
+            }
+
+            // Capturing the root node ( Left Root Right )
+            curr = st.pop();
+            result.add(curr.val);
+
+            // Traverse to the right nodes
+            curr = curr.right;
+        }
+
+        return result;
     }
 
     public static TreeNode buildTree(Integer[] arr) {
@@ -123,5 +154,12 @@ public class TreeNode {
         System.out.println("Postorder:");
         obj.postOrder(root);
         System.out.println("null");
+
+        System.out.println("Iterative Inorder ");
+        List<Integer> result = inorderTraversal(root);
+
+        for(int ele : result){
+            System.out.print(ele + " ");
+        }
     }
 }

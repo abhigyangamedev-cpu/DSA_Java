@@ -1,5 +1,7 @@
 package Trees;
 
+import java.util.Stack;
+
 public class BinarySearchTree {
 
     static TreeNode root;
@@ -36,6 +38,39 @@ public class BinarySearchTree {
 
     }
 
+    public static boolean isValidBST(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+
+        Stack<TreeNode> st = new Stack<>();
+        TreeNode curr = root;
+        TreeNode pre = null;
+
+        while(curr != null || !st.isEmpty()){
+            // Push onto the stack the left nodes to reach the left most node
+            while(curr != null){
+                st.push(curr);
+                curr = curr.left;
+            }
+
+            // Capturing the root node ( Left Root Right )
+            curr = st.pop();
+
+            // Comparing the previous node with the current node
+            if(pre != null && curr.val <= pre.val){
+                return false;
+            }
+
+            pre = curr;
+
+            // Traverse to the right nodes
+            curr = curr.right;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args){
         Integer[] arr = {
                 50, 30, 70, 20, 40, 60, 80
@@ -45,5 +80,7 @@ public class BinarySearchTree {
 
         System.out.println("Is the value in the tree :- " + search(root,50));
         System.out.println("Is the value in the tree :- " + search(root,150));
+
+        System.out.println("Is it a valid BST :- " + isValidBST(root));
     }
 }
