@@ -57,7 +57,6 @@ public class Queue {
     public static void main(String[] args) {
 
         Queue q = new Queue();
-
         System.out.println("Is queue empty? " + q.isEmpty());
 
         q.enqueue(10);
@@ -66,15 +65,14 @@ public class Queue {
         q.enqueue(40);
 
         System.out.println("\nQueue after enqueue:");
+
         q.display();
 
         System.out.println("\nFront element (peek): " + q.peek());
-
         System.out.println("Front element (top): " + q.top());
-
         System.out.println("\nDequeued: " + q.dequeue());
-
         System.out.println("Queue after dequeue:");
+
         q.display();
 
         System.out.println("Is queue empty? " + q.isEmpty());
