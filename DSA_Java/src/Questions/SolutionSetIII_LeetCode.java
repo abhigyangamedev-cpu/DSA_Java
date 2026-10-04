@@ -1,11 +1,12 @@
 package Questions;
 
 import Trees.TreeNode;
-
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
-public class SolutionSetIII {
+public class SolutionSetIII_LeetCode {
 
     class TwoMarks{
         // Q1
@@ -152,7 +153,131 @@ public class SolutionSetIII {
             solution.remove(solution.size() - 1);
         }
 
-        
+        // Q4
+        public boolean validateStackSequences(int[] pushed, int[] popped) {
+
+            if(pushed.length == 1) return pushed[0] == popped[0];
+
+            int popIndex = 0;
+            Stack<Integer> st = new Stack<>();
+
+            for(int ele : pushed){
+                st.push(ele);
+
+                while(!st.isEmpty() && st.peek() == popped[popIndex]){
+                    st.pop();
+                    popIndex++;
+                }
+            }
+            return st.isEmpty();
+
+        }
+    }
+
+    class FourMarks{
+
+        // Q1
+        public List<Integer> inorderTraversal(TreeNode root){
+            List<Integer> result = new LinkedList<>();
+
+            if(root == null){
+                return result;
+            }
+
+            Stack<TreeNode> st = new Stack<>();
+            TreeNode curr = root;
+
+            while(curr != null || !st.isEmpty()){
+                while(curr != null){
+                    st.push(curr);
+                    curr = curr.left;
+                }
+
+                curr = st.pop();
+                result.add(curr.val);
+
+                curr = curr.right;
+            }
+
+            return result;
+        }
+
+        // Q2
+        public boolean isValidBST(TreeNode root) {
+            if (root == null) {
+                return true;
+            }
+
+            Stack<TreeNode> st = new Stack<>();
+            TreeNode curr = root;
+            TreeNode pre = null;
+
+            while(curr != null || !st.isEmpty()){
+                while(curr != null){
+                    st.push(curr);
+                    curr = curr.left;
+                }
+
+                curr = st.pop();
+
+                if(pre != null && curr.val <= pre.val){
+                    return false;
+                }
+
+                pre = curr;
+
+                curr = curr.right;
+            }
+
+            return true;
+        }
+
+        // Q3
+        public boolean validateStackSequences(int[] pushed, int[] popped) {
+
+            if(pushed.length == 1) return pushed[0] == popped[0];
+
+            int popIndex = 0;
+
+            Stack<Integer> st = new Stack<>();
+
+            for(int ele : pushed){
+                st.push(ele);
+
+                while(!st.isEmpty() && st.peek() == popped[popIndex]){
+                    st.pop();
+                    popIndex++;
+                }
+            }
+
+            return st.isEmpty();
+
+        }
+
+        // Q4
+        public boolean isValid(String s) {
+            if (s.length() % 3 != 0) {
+                return false;
+            }
+
+            Stack<Character> st = new Stack<>();
+
+            //Enhanced for - loop
+            for(char ch: s.toCharArray()) {
+                if(ch == 'c') {
+                    if(st.size() >=2 && st.pop()=='b' && st.pop()=='a') {
+                        continue; //do nothing;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    //Push for a and b elements
+                    st.push(ch);
+                }
+            }
+            return st.isEmpty();
+        }
+    
     }
 
 }
