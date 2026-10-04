@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class BinarySearchTree {
 
-    static TreeNode root;
+    public static TreeNode root;
 
     public static void insert(int val){
         root = insertRecord(root,val);

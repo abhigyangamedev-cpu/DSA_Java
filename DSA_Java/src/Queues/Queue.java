@@ -35,7 +35,7 @@ public class Queue {
         if(front == null) return -1;
         return front.val;
     }
-    
+
 
     private static boolean isEmpty(){
         if(front == null) return true;
