@@ -3,6 +3,7 @@ package Queues;
 import LinkedList.ListNode;
 
 public class Queue {
+
     static ListNode front , rear;
 
     private static void enqueue(int val){
@@ -30,14 +31,11 @@ public class Queue {
         return data;
     }
 
-    private static int peek(){
+    private static int peak(){
         if(front == null) return -1;
         return front.val;
     }
-
-    private static int top(){
-        return peek();
-    }
+    
 
     private static boolean isEmpty(){
         if(front == null) return true;
@@ -68,8 +66,7 @@ public class Queue {
 
         q.display();
 
-        System.out.println("\nFront element (peek): " + q.peek());
-        System.out.println("Front element (top): " + q.top());
+        System.out.println("\nFront element (peek): " + q.peak());
         System.out.println("\nDequeued: " + q.dequeue());
         System.out.println("Queue after dequeue:");
 

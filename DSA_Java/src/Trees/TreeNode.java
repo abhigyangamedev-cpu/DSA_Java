@@ -60,7 +60,7 @@ public class TreeNode {
         System.out.print(node.val + "->");
     }
 
-    public static List<Integer> inorderTraversal(TreeNode root){
+    public static List<Integer> iterativeInOrder(TreeNode root){
         List<Integer> result = new LinkedList<>();
 
         if(root == null){
@@ -156,7 +156,7 @@ public class TreeNode {
         System.out.println("null");
 
         System.out.println("Iterative Inorder ");
-        List<Integer> result = inorderTraversal(root);
+        List<Integer> result = iterativeInOrder(root);
 
         for(int ele : result){
             System.out.print(ele + " ");
