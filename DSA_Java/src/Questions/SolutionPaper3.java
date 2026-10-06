@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Stack;
 
 public class SolutionPaper3 {
-
     // Set 1
     class TwoMarks{
         // Q1
@@ -532,6 +531,15 @@ public class SolutionPaper3 {
                 }
             }
 
+            static void inOrder(TreeNode root){
+
+                if(root == null) return;
+
+                inOrder(root.left);
+                System.out.print(root.val +" ");
+                inOrder(root.right);
+            }
+
             static void runBST() {
 
                 insert(50);
@@ -544,6 +552,9 @@ public class SolutionPaper3 {
 
                 System.out.println("Search 40: " + search(root, 40));
                 System.out.println("Search 90: " + search(root, 90));
+
+                System.out.println("InOrder Traversal for BST");
+                inOrder(root);
             }
         }
     }
@@ -554,5 +565,4 @@ public class SolutionPaper3 {
         FiveMarks.BST.runBST();
 
     }
-
 }
