@@ -6,9 +6,7 @@ public class StackNode {
     StackNode next;
     public static StackNode head = null;
 
-    public StackNode(int val) {
-        this.val = val;
-        this.next = null;
+    public StackNode() {
     }
 
     public StackNode(int val, StackNode next) {

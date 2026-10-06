@@ -1,13 +1,15 @@
 package Questions;
 
 import Trees.TreeNode;
+import LinkedList.ListNode;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-public class SolutionSetIII_LeetCode {
+public class SolutionPaper3 {
 
+    // Set 1
     class TwoMarks{
         // Q1
         public List<Integer> inorderTraversal(TreeNode root) {
@@ -84,7 +86,6 @@ public class SolutionSetIII_LeetCode {
             return result;
         }
     }
-
     class ThreeMarks{
         // Q1
         public boolean isSymmetric(TreeNode root) {
@@ -173,7 +174,6 @@ public class SolutionSetIII_LeetCode {
 
         }
     }
-
     class FourMarks{
 
         // Q1
@@ -277,7 +277,282 @@ public class SolutionSetIII_LeetCode {
             }
             return st.isEmpty();
         }
-    
+
+    }
+
+    // Set 2
+    static class FiveMarks{
+
+        // Q1
+        static class StackNode{
+
+            int val;
+            StackNode next;
+            static StackNode head;
+
+            public StackNode() {
+            }
+
+            StackNode(int val, StackNode next){
+                this.val = val;
+                this.next = next;
+            }
+
+
+            static boolean isEmpty(){ return head == null;}
+
+            static void push(int value){ head = new StackNode(value, head);}
+
+            static void pop(){
+
+                if(!isEmpty()){
+                    int result = head.val;
+                    head = head.next;
+                    System.out.println("Removed :- " + result);
+                }else{
+                    System.out.println("Stack is Empty");
+                }
+            }
+
+            static int peak(){
+                if(!isEmpty()) return head.val;
+                return Integer.MIN_VALUE;
+            }
+
+            static int top(){ return peak();}
+
+            static void runStackNode(){
+
+                StackNode st = new StackNode();
+
+                st.push(1);
+                st.push(2);
+                st.push(3);
+                st.push(4);
+
+                System.out.println("Top element of the stack :- " + st.top());
+
+                st.pop();
+                st.pop();
+                st.pop();
+                st.pop();
+                st.pop();
+            }
+        }
+
+        // Q2
+        static class Queue{
+
+            static ListNode rear , front;
+
+            static boolean isEmpty(){
+                if (front == null) return true;
+                return false;
+            }
+
+            static void enqueue(int val){
+                ListNode newNode = new ListNode(val);
+
+                if(rear == null){
+                    front = rear = newNode;
+                    return;
+                }
+
+                rear.next = newNode;
+                rear = newNode;
+            }
+
+            static int dequeue(){
+
+                if(front == null) return -1;
+
+                int data = front.val;
+                front = front.next;
+
+                if(front == null) rear = null;
+
+                return data;
+            }
+
+            static int peak(){
+                if(front == null) return Integer.MIN_VALUE;
+                return front.val;
+            }
+
+            static void display(){
+                ListNode curr = front;
+
+                System.out.println("Displaying the queue implementation using Linked List");
+
+                while(curr != null){
+                    System.out.print(curr.val + "->");
+                    curr = curr.next;
+                }
+                System.out.println("null");
+            }
+
+            static void runQueueImplementation(){
+
+                Queue q = new Queue();
+
+                System.out.println("Is Queue Empty ? :- " + isEmpty());
+
+                q.enqueue(1);
+                q.enqueue(2);
+                q.enqueue(3);
+                q.enqueue(4);
+                q.enqueue(5);
+
+                System.out.println("Peak element of the queue :- " + q.peak());
+                System.out.println("Is Queue Empty After enqueueing  ? :- " + isEmpty());
+                q.display();
+
+                System.out.println("Dequeued :- " + q.dequeue());
+                System.out.println("Dequeued :- " + q.dequeue());
+                System.out.println("Dequeued :- " + q.dequeue());
+                System.out.println("Dequeued :- " + q.dequeue());
+                System.out.println("Dequeued :- " + q.dequeue());
+                System.out.println("Dequeued :- " + q.dequeue());
+
+                System.out.println("Is Queue Empty After dequeueing ? :- " + isEmpty());
+
+            }
+
+        }
+
+        // Q3
+        static class TreeNode{
+
+            int val;
+            static TreeNode root;
+            TreeNode left;
+            TreeNode right;
+
+            TreeNode(){}
+
+            TreeNode(int val){this.val = val;}
+
+            TreeNode(int val, TreeNode left,TreeNode right){
+                this.val = val;
+                this.left = left;
+                this.right = right;
+            }
+
+            static void preOrder(TreeNode root){
+                if(root == null) return;
+
+                System.out.print(root.val +" ");
+                preOrder(root.left);
+                preOrder(root.right);
+            }
+
+            static void inOrder(TreeNode root){
+                if(root == null) return;
+
+                inOrder(root.left);
+                System.out.print(root.val +" ");
+                inOrder(root.right);
+            }
+
+            static void postOrder(TreeNode root){
+                if(root == null) return;
+
+
+                postOrder(root.left);
+                postOrder(root.right);
+                System.out.print(root.val +" ");
+            }
+
+            static void runTreeNode(){
+
+                TreeNode one = new TreeNode(1);
+                TreeNode two = new TreeNode(2);
+                TreeNode three = new TreeNode(3);
+                TreeNode four = new TreeNode(4);
+                TreeNode five = new TreeNode(5);
+                TreeNode six = new TreeNode(6);
+                TreeNode seven = new TreeNode(7);
+
+                one.left = two;
+                one.right = three;
+
+                two.left = four;
+                two.right= five;
+
+                three.left = six;
+                three.right = seven;
+
+                root = one;
+
+                System.out.println("PreOrder Traversal");
+                preOrder(root);
+                System.out.println();
+                System.out.println("InOrder Traversal");
+                inOrder(root);
+                System.out.println();
+                System.out.println("PostOrder Traversal");
+                postOrder(root);
+                System.out.println();
+            }
+        }
+
+        // Q4
+        static class BST {
+            static TreeNode root;
+
+            static TreeNode insertRecord(TreeNode node, int val) {
+
+                if(node == null) {
+                    return new TreeNode(val);
+                }
+
+                if(val <= node.val) {
+                    node.left = insertRecord(node.left, val);
+                } else {
+                    node.right = insertRecord(node.right, val);
+                }
+
+                return node;
+            }
+
+            static void insert(int val) {
+                root = insertRecord(root, val);
+            }
+
+            static boolean search(TreeNode root, int val) {
+
+                if(root == null) return false;
+
+                if(root.val == val) {
+                    return true;
+                } else if(val < root.val) {
+                    return search(root.left, val);
+                } else {
+                    return search(root.right, val);
+                }
+            }
+
+            static void runBST() {
+
+                insert(50);
+                insert(30);
+                insert(70);
+                insert(20);
+                insert(40);
+                insert(60);
+                insert(80);
+
+                System.out.println("Search 40: " + search(root, 40));
+                System.out.println("Search 90: " + search(root, 90));
+            }
+        }
+    }
+    public static void main(String[] args){
+        FiveMarks.StackNode.runStackNode();
+        FiveMarks.Queue.runQueueImplementation();
+        FiveMarks.TreeNode.runTreeNode();
+        FiveMarks.BST.runBST();
+
     }
 
 }
