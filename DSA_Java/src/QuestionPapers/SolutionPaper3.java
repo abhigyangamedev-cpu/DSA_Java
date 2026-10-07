@@ -1,4 +1,4 @@
-package Questions;
+package QuestionPapers;
 
 import Trees.TreeNode;
 import LinkedList.ListNode;

@@ -1,4 +1,4 @@
-package TwoPointers.Easy.NeetCode;
+package TwoPointers.Strings.Easy.NeetCode;
 
 public class MergeStringAlternatively {
     public static String mergeAlternately(String word1, String word2) {
