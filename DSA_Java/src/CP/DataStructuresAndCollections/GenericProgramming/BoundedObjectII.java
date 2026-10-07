@@ -62,4 +62,16 @@ public class BoundedObjectII {
             return this;
         }
     }
+
+    public static void main(String[] args){
+        // Bounded Object Example 2 using Interface
+
+        PrintableNumber myNumber = new PrintableNumber(12);
+        NumberContainer<PrintableNumber> num = new NumberContainer<>(myNumber);
+        num.display();
+
+        PrintableNumber myNumber2 = new PrintableNumber(12.67);
+        NumberContainer<PrintableNumber> num2 = new NumberContainer<>(myNumber2);
+        num2.display();
+    }
 }

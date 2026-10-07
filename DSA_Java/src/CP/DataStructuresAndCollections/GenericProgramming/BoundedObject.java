@@ -18,6 +18,18 @@ public class BoundedObject<N extends Number> {
         this.val = val;
         return this;
     }
+
+    public static void main(String[] args){
+
+        // Bounded Object Example 1
+
+        // BoundedObject<String> BObj1 = new BoundedObject<>("Hello");
+        // Error :- Not in Bound Error
+
+        BoundedObject<Float> BObj2 = new BoundedObject<>(5.0f);
+        System.out.println(BObj2.getVal());
+
+    }
 }
 
 

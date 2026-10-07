@@ -29,4 +29,18 @@ public class Pair<K,V> {
         this.value = value;
         return this;
     }
+
+    public static void main(String[] args){
+        // Pair Example
+        Pair<String,Integer> p1 = new Pair<>("id",2506666);
+
+        System.out.println(p1.getKey());
+        System.out.println(p1.getValue());
+
+        p1.setKey("roll number");
+
+        System.out.println(p1.getKey());
+        System.out.println(p1.getValue());
+
+    }
 }

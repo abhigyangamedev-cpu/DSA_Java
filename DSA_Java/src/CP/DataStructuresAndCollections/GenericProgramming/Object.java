@@ -18,5 +18,20 @@ public class Object<T> {
         this.val = val;
         return this;
     }
+
+    public static void main(String[] args){
+        // Object Example
+        Object<Integer> Obj1 = new Object<>();
+
+        Obj1.setVal(1);
+        System.out.println(Obj1.getVal());
+
+        Object<String> Obj2 = new Object<>("H");
+
+        System.out.println(Obj2.getVal());
+
+        Obj2.setVal("X");
+        System.out.println(Obj2.getVal());
+    }
 }
 
